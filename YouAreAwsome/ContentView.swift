@@ -8,53 +8,74 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State  var message = "I Am A Programmer!"
+    @State private var message = ""
+    @State  private  var imageView = ""
     var body: some View {
+        Spacer()
         VStack {
-            Spacer()
-            Image(systemName: "swift")
+            
+            Image(systemName: imageView)
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
-                .frame(width: 200, height: 200)
+                .frame(width: 300, height: 300)
+            
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.ultraLight)
-                Spacer()
+                .fontWeight(.heavy)
+                
             
-            HStack {
-                Button("Awsome"){
-                    print(message)
-                    message = "Awsome!"
-                    
-                }
+        }
+        Spacer()
+                  
+        Button("Press Me!"){
+            let message1 = "You Are Awesome"
+            let message2 = " You Are Great"
+            let imageView1 = "sun.max.fill"
+            let imageView2 = "hand.thumbsup.fill"
+            
+            
+            if message == message1 {
+                message = message2
+                imageView = imageView2
                 
-                
-                Button("Great!"){
-                    print(message)
-                    message = "Great!"
-                }
+            }else {
+                message = message1
+                imageView = imageView1
                 
             }
-            .buttonStyle(.borderedProminent)
-            .font(.title2)
-            .tint(.orange)
-            
-            
-            
-            
-            
-            
-            
-            
-            
+    
             
             
         }
-        // New Stuff Here !
-        .padding()
+       
+        
+        
+        
+        
+        
+        .buttonStyle(.borderedProminent)
+        .font(.title2)
+        .tint(.orange)
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
 }
+
 
 #Preview {
     ContentView()

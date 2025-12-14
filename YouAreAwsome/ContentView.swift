@@ -22,8 +22,8 @@ struct ContentView: View {
             
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
-                .fontWeight(.heavy)
+                .fontWeight(.thin)
+                
                 
             
         }

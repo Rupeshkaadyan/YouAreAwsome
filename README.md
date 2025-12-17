@@ -12,8 +12,11 @@ The goal is to learn core SwiftUI concepts, UI layout, navigation, and the iOS a
 - Simple project structure
 
 ## Screenshot
-<img width="313" height="563" alt="Screenshot 2025-12-13 at 4 40 21 AM" src="https://github.com/user-attachments/assets/b73e7c7e-d93a-4e74-bb06-731d09ea732f" />
-<img width="313" height="477" alt="Screenshot 2025-12-13 at 12 20 01 PM" src="https://github.com/user-attachments/assets/99b551c3-f6f1-4100-875e-49c60084e31e" />
+
+
+https://github.com/user-attachments/assets/60f4e836-f1a8-4c39-b5a1-c86c6d9fb7bc
+
+
 
 
 ## Tech Stack

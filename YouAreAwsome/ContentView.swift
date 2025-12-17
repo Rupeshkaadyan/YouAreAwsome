@@ -23,7 +23,7 @@ struct ContentView: View {
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.thin)
-                
+                 
                 
             
         }
@@ -36,15 +36,10 @@ struct ContentView: View {
             let imageView2 = "hand.thumbsup.fill"
             
             
-            if message == message1 {
-                message = message2
-                imageView = imageView2
-                
-            }else {
-                message = message1
-                imageView = imageView1
-                
-            }
+            message = (message == message2 ? message1 : message2)
+            imageView = (imageView == imageView1 ? imageView2 : imageView1)
+            
+            
     
             
             

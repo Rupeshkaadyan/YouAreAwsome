@@ -9,35 +9,67 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var message = ""
-    @State  private  var imageView = ""
+    @State private var imageName = ""
+    @State private var imageNumber = 0
+    @State private var messageNumber = 0
+    @State private var index = -1
+    
     var body: some View {
-        Spacer()
+        
         VStack {
-            
-            Image(systemName: imageView)
-                .resizable()
-                .scaledToFit()
-                .foregroundStyle(.orange)
-                .frame(width: 300, height: 300)
             
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.thin)
+                .fontWeight(.heavy)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.red)
+                .frame(height:130)
+                .animation(.easeInOut(duration: 0.15), value: message)
+            
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .padding(.horizontal, 20)
+                .shadow(radius: 100)
+                .animation(.default, value: imageName)
+            
+            
+           
+          
+            
                  
-                
+            
             
         }
         Spacer()
                   
-        Button("Press Me!"){
-            let message1 = "You Are Awesome"
-            let message2 = " You Are Great"
-            let imageView1 = "sun.max.fill"
-            let imageView2 = "hand.thumbsup.fill"
+        Button("Show Message"){
+            let messages = ["You Are Great",
+                            "I Am Awesome"
+                            ,"Fnastastic",
+                             "YOO",
+                             "You Make Me Smile!",
+                            "When the Genius Bar Needs Help, They Call You!","Perfect","Humble"]
+            message = messages[messageNumber]
+            messageNumber += 1
+            if messageNumber == messages.count{
+                messageNumber = 0
+            }
+           
+           
+            imageName = (imageName == "image0" ? "image1" : "image0")
+            
+            imageName = "image\(imageNumber)"
+            imageNumber += 1
+            if imageNumber > 9 {
+                imageNumber = 0
             
             
-            message = (message == message2 ? message1 : message2)
-            imageView = (imageView == imageView1 ? imageView2 : imageView1)
+            }
+            
+            
+            
             
             
     
@@ -52,7 +84,7 @@ struct ContentView: View {
         
         .buttonStyle(.borderedProminent)
         .font(.title2)
-        .tint(.orange)
+        
         
        
         

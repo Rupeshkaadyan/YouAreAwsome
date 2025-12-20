@@ -20,10 +20,10 @@ struct ContentView: View {
             
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.heavy)
+                .fontWeight(.thin)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.red)
-                .frame(height:130)
+                .frame(height:120)
                 .animation(.easeInOut(duration: 0.15), value: message)
             
             Image(imageName)
@@ -75,6 +75,7 @@ struct ContentView: View {
         
         .buttonStyle(.borderedProminent)
         .font(.title2)
+        
         
         
        

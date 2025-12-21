@@ -19,20 +19,38 @@ struct ContentView: View {
         VStack {
             
             Text(message)
-                .font(.largeTitle)
-                .fontWeight(.thin)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.red)
-                .frame(height:120)
-                .animation(.easeInOut(duration: 0.15), value: message)
+                .font(.system(size: 34, weight: .semibold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.pink, .red, .orange],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .padding(.horizontal, 24)
+                    .frame(maxWidth: .infinity, minHeight: 120)
+                    .animation(.easeInOut(duration: 0.2), value: message)
             
             Image(imageName)
                 .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .scaledToFill()
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: 320
+                )
+                .clipShape(
+                    RoundedRectangle(
+                        cornerRadius: 28,
+                        style: .continuous
+                    )
+                )
                 .padding(.horizontal, 20)
-                .shadow(radius: 100)
-                .animation(.default, value: imageName)
+                .shadow(color: .black.opacity(0.25), radius: 18, x: 0, y: 10)
+                .animation(
+                    .spring(response: 0.35, dampingFraction: 0.8),
+                    value: imageName
+                )
             
             
            
@@ -75,6 +93,19 @@ struct ContentView: View {
         
         .buttonStyle(.borderedProminent)
         .font(.title2)
+        .font(.title3)
+        .padding(.horizontal, 24)
+        .padding(.vertical, 12)
+        .background(
+            LinearGradient(
+                colors: [.blue, .purple],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .foregroundColor(.white)
+        .cornerRadius(14)
+        .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 4)
         
         
         

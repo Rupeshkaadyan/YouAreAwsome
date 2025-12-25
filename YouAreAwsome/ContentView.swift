@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var message = ""
     @State private var imageName = ""
-    @State private var imageNumber = 0
-    @State private var messageNumber = 0
-    @State private var index = -1
+    @State private var lastMessageNumber = -1
+    @State private var lastImageNumber = -1
+    
     
     var body: some View {
         
@@ -20,17 +20,17 @@ struct ContentView: View {
             
             Text(message)
                 .font(.system(size: 34, weight: .semibold, design: .rounded))
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [.pink, .red, .orange],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
+                .multilineTextAlignment(.center)
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: [.pink, .red, .orange],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
                     )
-                    .padding(.horizontal, 24)
-                    .frame(maxWidth: .infinity, minHeight: 120)
-                    .animation(.easeInOut(duration: 0.2), value: message)
+                )
+                .padding(.horizontal, 24)
+                .frame(maxWidth: .infinity, minHeight: 120)
+                .animation(.easeInOut(duration: 0.2), value: message)
             
             Image(imageName)
                 .resizable()
@@ -53,39 +53,46 @@ struct ContentView: View {
                 )
             
             
-           
-          
             
-                 
+            
+            
             
             
         }
         Spacer()
-                  
+        
         Button("Show Message"){
-            let messages = ["You Are Great",
+            var messages = ["You Are Great",
                             "I Am Awesome"
                             ,"Fnastastic",
-                             "YOO",
-                             "You Make Me Smile!",
+                            "YOO",
+                            "You Make Me Smile!",
                             "When the Genius Bar Needs Help, They Call You!","Perfect","Humble","Happy"]
+            var messageNumber = Int.random(in: 0...messages.count-1)
+            while messageNumber == lastImageNumber{
+                messageNumber = Int.random(in: 0...messages.count-1)
+            }
+            message = messages[messageNumber]
+            lastImageNumber = messageNumber
             
-            message = messages[Int.random(in: 0...messages.count-1)]
-           
-           
-            imageName = "image\(Int.random(in: 0...9))"
+            var imageNumber = Int.random(in: 0...9)
+            while imageNumber == lastImageNumber{
+                imageNumber = Int.random(in: 0...9)
+            }
             
-
-            
-            
-            
+            imageName = "image\(imageNumber)"
+            lastImageNumber = imageNumber
             
             
-    
+            
+            
+            
+            
+            
             
             
         }
-       
+        
         
         
         
@@ -109,7 +116,7 @@ struct ContentView: View {
         
         
         
-       
+        
         
         
         

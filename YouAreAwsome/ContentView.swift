@@ -63,8 +63,7 @@ struct ContentView: View {
         
         Button("Show Message"){
             var messages = ["You Are Great",
-                            "I Am Awesome"
-                            ,"Fnastastic",
+                            "Fnastastic",
                             "YOO",
                             "You Make Me Smile!",
                             "When the Genius Bar Needs Help, They Call You!","Perfect","Humble","Happy"]
